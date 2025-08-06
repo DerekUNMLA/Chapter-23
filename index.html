@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+  <meta charset="UTF-8">
+  <title>Animal Tissues Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #1e293b;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #e0f2fe;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      padding: 12px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-weight: bold;
+      color: #0369a1;
+      border-bottom: 3px solid transparent;
+      transition: border 0.3s;
+    }
+
+    .tab-button.active {
+      border-bottom: 3px solid #3b82f6;
+      color: #0f172a;
+    }
+
+    .tab-content {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .image-box {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .image-box img {
+      width: 250px;
+      max-width: 100%;
+      border-radius: 8px;
+      border: 2px solid #cbd5e1;
+    }
+
+    h2 {
+      color: #0369a1;
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+      }
+      .tab-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🧬 Animal Tissues Explorer</h1>
+    <p>Explore four major tissue types in one place</p>
+  </header>
+
+  <nav>
+    <button class="tab-button active" onclick="showTab('epithelial')">Epithelial</button>
+    <button class="tab-button" onclick="showTab('muscle')">Muscle</button>
+    <button class="tab-button" onclick="showTab('nervous')">Nervous</button>
+    <button class="tab-button" onclick="showTab('connective')">Connective</button>
+  </nav>
+
+  <!-- Epithelial -->
+  <section id="epithelial" class="tab-content active">
+    <div class="image-box">
+      <img src="https://i.imgur.com/E2AvLVS.png" alt="Epithelial tissue">
+      <p style="color: #64748b;">Image: Epithelial Tissue</p>
+    </div>
+    <h2>🧠 Function</h2>
+    <p>Covers external and internal surfaces; protects, absorbs, and secretes.</p>
+    <h2>🔬 Structure</h2>
+    <p>One or more layers of tightly packed cells. Types include simple and stratified; shapes include squamous, cuboidal, columnar.</p>
+    <h2>📍 Locations</h2>
+    <ul>
+      <li>Skin surface</li>
+      <li>Lining of digestive tract</li>
+      <li>Air sacs of lungs</li>
+      <li>Glands (e.g., sweat, salivary)</li>
+    </ul>
+  </section>
+
+  <!-- Muscle -->
+  <section id="muscle" class="tab-content">
+    <div class="image-box">
+      <img src="https://i.imgur.com/OMJvCI5.png" alt="Muscle tissue">
+      <p style="color: #64748b;">Image: Muscle Tissue</p>
+    </div>
+    <h2>🧠 Function</h2>
+    <p>Contracts to produce movement; responsible for body motion, heartbeat, and digestion.</p>
+    <h2>🔬 Structure</h2>
+    <p>Long, cylindrical fibers. Types: skeletal (voluntary), cardiac (involuntary, striated), smooth (involuntary, non-striated).</p>
+    <h2>📍 Locations</h2>
+    <ul>
+      <li>Skeletal muscles (arms, legs)</li>
+      <li>Heart (cardiac muscle)</li>
+      <li>Walls of organs (smooth muscle)</li>
+    </ul>
+  </section>
+
+  <!-- Nervous -->
+  <section id="nervous" class="tab-content">
+    <div class="image-box">
+      <img src="https://i.imgur.com/21jfMcw.png" alt="Nervous tissue">
+      <p style="color: #64748b;">Image: Nervous Tissue</p>
+    </div>
+    <h2>🧠 Function</h2>
+    <p>Transmits electrical signals for communication, coordination, and response.</p>
+    <h2>🔬 Structure</h2>
+    <p>Made of neurons (transmit signals) and glial cells (support). Neurons have axons and dendrites.</p>
+    <h2>📍 Locations</h2>
+    <ul>
+      <li>Brain and spinal cord</li>
+      <li>Peripheral nerves</li>
+      <li>Sensory organs</li>
+    </ul>
+  </section>
+
+  <!-- Connective -->
+  <section id="connective" class="tab-content">
+    <div class="image-box">
+      <img src="https://i.imgur.com/ohau3uF.png" alt="Connective tissue">
+      <p style="color: #64748b;">Image: Connective Tissue</p>
+    </div>
+    <h2>🧠 Function</h2>
+    <p>Supports, binds, and protects organs. Stores energy and transports substances.</p>
+    <h2>🔬 Structure</h2>
+    <p>Cells scattered in extracellular matrix (fibers + fluid/gel). Types: loose, dense, cartilage, bone, blood.</p>
+    <h2>📍 Locations</h2>
+    <ul>
+      <li>Fat (adipose), tendons, ligaments</li>
+      <li>Bone and cartilage</li>
+      <li>Blood and lymph</li>
+    </ul>
+  </section>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      const button = Array.from(document.querySelectorAll('.tab-button')).find(btn =>
+        btn.textContent.toLowerCase().includes(tabId)
+      );
+      if (button) button.classList.add('active');
+    }
+  </script>
+
+
+
+</body></html>
